@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
   "manifestVersion": "1.16",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "id": "6e8a49d9-93c4-4216-a597-7c2b22abd017",
   "developer": {
     "name": "Team Retrospective",
@@ -35,8 +35,7 @@
         "privateChatTab",
         "meetingChatTab",
         "meetingDetailsTab",
-        "meetingSidePanel",
-        "meetingStage"
+        "meetingSidePanel"
       ]
     }
   ],
@@ -52,8 +51,7 @@
     }
   ],
   "permissions": [
-    "identity",
-    "messageTeamMembers"
+    "identity"
   ],
   "authorization": {
     "permissions": {
@@ -67,7 +65,6 @@
   },
   "validDomains": [
     "retro-ecosystems.lovable.app",
-    "stevenabraham5.github.io",
-    "localhost:5173"
+    "stevenabraham5.github.io"
   ]
 }
