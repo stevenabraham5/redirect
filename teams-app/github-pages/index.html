@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Retro Tab Setup</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Segoe UI, Arial, sans-serif;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #f7fbff;
+        color: #0f172a;
+      }
+      .card {
+        width: min(560px, calc(100% - 2rem));
+        background: #fff;
+        border: 1px solid #dbeafe;
+        border-radius: 12px;
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        padding: 1.2rem;
+        text-align: center;
+      }
+      .status {
+        margin-top: 0.6rem;
+        font-weight: 600;
+      }
+      .ready {
+        color: #047857;
+      }
+      .error {
+        color: #b91c1c;
+      }
+    </style>
+    <script src="https://res.cdn.office.net/teams-js/2.31.1/js/MicrosoftTeams.min.js"></script>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Team Retro</h1>
+      <p>Tab configuration</p>
+      <p id="status" class="status">Initializing...</p>
+    </main>
+    <script>
+      (function () {
+        var statusEl = document.getElementById('status');
+        var appRoot = 'https://retro-ecosystems.lovable.app/';
+
+        function setStatus(msg, cls) {
+          statusEl.textContent = msg;
+          statusEl.className = 'status ' + (cls || '');
+        }
+
+        async function init() {
+          try {
+            await microsoftTeams.app.initialize();
+
+            if (!microsoftTeams.pages.config.isSupported()) {
+              setStatus('Tab config is not supported in this Teams context.', 'error');
+              return;
+            }
+
+            microsoftTeams.pages.config.registerOnSaveHandler(function (saveEvent) {
+              microsoftTeams.pages.config
+                .setConfig({
+                  entityId: 'retro-board-tab',
+                  suggestedDisplayName: 'Retrospective',
+                  contentUrl: appRoot,
+                  websiteUrl: appRoot
+                })
+                .then(function () {
+                  saveEvent.notifySuccess();
+                })
+                .catch(function () {
+                  saveEvent.notifyFailure('Could not save tab config.');
+                });
+            });
+
+            microsoftTeams.pages.config.setValidityState(true);
+            setStatus('Ready. Click Save to pin Team Retro.', 'ready');
+          } catch (_err) {
+            setStatus('Teams SDK initialization failed.', 'error');
+          }
+        }
+
+        init();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+:root {
+  --ink: #1e2230;
+  --muted-ink: #57627d;
+  --paper: #f7faf9;
+  --paper-shadow: rgb(47 61 88 / 0.14);
+  --font-sans: 'Avenir Next', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --font-heading: 'Verdana', 'Avenir Next', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.4 var(--font-sans);
+  background:
+    radial-gradient(circle at 85% 10%, #fff8d8 0%, rgb(255 248 216 / 0) 34%),
+    radial-gradient(circle at 10% 80%, #d8ebff 0%, rgb(216 235 255 / 0) 38%),
+    linear-gradient(180deg, #f2f6ff 0%, #f8fbf7 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+}

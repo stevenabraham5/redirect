@@ -1,0 +1,215 @@
+.retro-app {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 1.2rem;
+  animation: rise 450ms ease-out;
+}
+
+.retro-header {
+  background: linear-gradient(120deg, #fffde1 0%, #fff6c2 62%, #ffe9a8 100%);
+  border: 2px solid #efd389;
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 10px 26px rgb(89 69 16 / 0.12);
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #5e4d1a;
+}
+
+.retro-header h1 {
+  margin: 0.25rem 0;
+  line-height: 1.12;
+  color: #2d2f3a;
+}
+
+.subtitle {
+  margin: 0;
+  color: #4a4f65;
+}
+
+.composer {
+  background: rgb(255 255 255 / 0.85);
+  border: 1px solid #dddeea;
+  border-radius: 14px;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.composer-form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.composer-form label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #22303e;
+}
+
+.composer-form textarea,
+.composer-form select,
+.composer-form button {
+  font: inherit;
+}
+
+.composer-form textarea,
+.composer-form select {
+  border: 1px solid #c7cede;
+  border-radius: 10px;
+  padding: 0.68rem 0.78rem;
+  background: #fff;
+}
+
+.composer-form textarea:focus,
+.composer-form select:focus,
+.composer-form button:focus-visible,
+.sticky button:focus-visible {
+  outline: 3px solid #77a9ff;
+  outline-offset: 1px;
+}
+
+.composer-controls {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.composer-controls button {
+  border: 1px solid transparent;
+  background: #1e5fd8;
+  color: #fff;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.composer-controls button.ghost {
+  background: #fff;
+  border-color: #b9bfd1;
+  color: #334462;
+}
+
+.retro-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.lane {
+  border-radius: 12px;
+  border: 1px solid #d9deec;
+  min-height: 280px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.lane-header {
+  padding: 0.85rem 0.9rem;
+}
+
+.lane-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.lane-header p {
+  margin: 0.2rem 0;
+  font-size: 0.86rem;
+  color: #3f4f69;
+}
+
+.lane-header span {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #26415a;
+}
+
+.lane-strengths {
+  background: linear-gradient(170deg, #dff2ff 0%, #edf7ff 100%);
+}
+
+.lane-successes {
+  background: linear-gradient(170deg, #f8efc3 0%, #fff7db 100%);
+}
+
+.lane-goals {
+  background: linear-gradient(170deg, #e2f4e4 0%, #f1fbf1 100%);
+}
+
+.lane-obstacles {
+  background: linear-gradient(170deg, #ffdfe1 0%, #ffedee 100%);
+}
+
+.lane-body {
+  padding: 0.7rem;
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.sticky {
+  background: #fffef0;
+  border: 1px solid #eadf9f;
+  border-radius: 9px;
+  box-shadow: 0 6px 14px rgb(64 52 16 / 0.11);
+  padding: 0.65rem;
+}
+
+.sticky p {
+  margin: 0 0 0.45rem;
+  color: #2a2b2f;
+}
+
+.sticky button {
+  border: none;
+  background: transparent;
+  color: #7c1d23;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.empty {
+  margin: 0;
+  font-style: italic;
+  color: #4e5a70;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1050px) {
+  .retro-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .retro-app {
+    padding: 0.8rem;
+  }
+
+  .retro-grid {
+    grid-template-columns: 1fr;
+  }
+}

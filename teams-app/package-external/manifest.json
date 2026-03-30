@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.16/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.16",
+  "version": "1.0.3",
+  "id": "2e6af0f1-61b6-4234-9089-d05e1fe217a8",
+  "developer": {
+    "name": "Team Retrospective",
+    "websiteUrl": "https://retro-ecosystems.lovable.app",
+    "privacyUrl": "https://retro-ecosystems.lovable.app",
+    "termsOfUseUrl": "https://retro-ecosystems.lovable.app"
+  },
+  "name": {
+    "short": "Team Retro",
+    "full": "Team Retrospective Board"
+  },
+  "description": {
+    "short": "Anonymous sticky-note retrospectives for teams.",
+    "full": "Team Retro is an anonymous sticky-note retrospective board with Strengths, Successes, Goals/Vision, Obstacles, and a Synthesis and Next Steps view."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#3B82F6",
+  "configurableTabs": [
+    {
+      "configurationUrl": "https://poor-seals-heal.loca.lt/tab-config.html",
+      "canUpdateConfiguration": true,
+      "scopes": [
+        "team",
+        "groupChat"
+      ],
+      "context": [
+        "channelTab",
+        "privateChatTab",
+        "meetingChatTab",
+        "meetingDetailsTab",
+        "meetingSidePanel",
+        "meetingStage"
+      ]
+    }
+  ],
+  "staticTabs": [
+    {
+      "entityId": "retro-personal",
+      "name": "Retrospective",
+      "contentUrl": "https://retro-ecosystems.lovable.app/",
+      "websiteUrl": "https://retro-ecosystems.lovable.app/",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "type": "Delegated",
+          "name": "MeetingStage.Write.Chat"
+        }
+      ]
+    }
+  },
+  "validDomains": [
+    "retro-ecosystems.lovable.app",
+    "retro-ecosystems.lovable.app",
+    "poor-seals-heal.loca.lt",
+    "localhost:5173"
+  ]
+}
